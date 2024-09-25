@@ -1,10 +1,13 @@
 import Link from 'next/link';
 
 const HeroSection = () => (
-  <section className="relative bg-background bg-cover bg-center h-screen">
+  <section
+    className="relative bg-cover bg-center h-screen"
+    style={{ backgroundImage: 'url("/hero.png")' }} // Set the background image
+  >
     {/* Dark overlay */}
     <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-    
+
     {/* Hero content */}
     <div className="relative z-10 container mx-auto px-6 text-center flex flex-col justify-center items-center h-full">
       {/* Title */}
