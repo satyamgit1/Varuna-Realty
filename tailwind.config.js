@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: '#FFD700',  // The bright yellow from the logo for important text
+        background: '#4A403A',  // The dark brown background from the banner
+      },
       keyframes: {
         fadeInUp: {
           '0%': {
