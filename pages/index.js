@@ -2,11 +2,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PropertyCard from '../components/PropertyCard';
 import HeroSection from '../components/HeroSection';
+import ComingSoon from '@/components/ComingSoon';
 
 export default function Home() {
   return (
     <>
       <Navbar />
+      <ComingSoon />
       <HeroSection />
       <div className="container mx-auto p-6">
         <h1 className="text-3xl font-bold text-center mb-6">Welcome to Varuna Realty</h1>
