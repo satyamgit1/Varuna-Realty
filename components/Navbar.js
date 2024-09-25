@@ -50,7 +50,7 @@ const Navbar = () => {
           <Link href="/about" className="block text-lg hover:text-yellow-300 transition duration-300">About Us</Link>
           <Link href="/properties" className="block text-lg hover:text-yellow-300 transition duration-300">Properties</Link>
           <Link href="/services" className="block text-lg hover:text-yellow-300 transition duration-300">Services</Link>
-          <Link href="/contact" className="block text-lg hover:text-yellow-300 transition duration-300">Contact Us</Link>
+          <Link href="/Footer" className="block text-lg hover:text-yellow-300 transition duration-300">Contact Us</Link>
         </div>
       )}
     </nav>
