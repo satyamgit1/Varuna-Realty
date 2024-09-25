@@ -6,6 +6,7 @@ import ComingSoon from '@/components/ComingSoon';
 import ContactForm from '@/components/ContactForm';
 import StatsSection from '@/components/StatsSection';
 import OurServices from '@/components/OurServices';
+import OwnerProfile from '@/components/OwnerProfile';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Navbar />
       <ComingSoon />
       <HeroSection />
+      <OwnerProfile />
       <div className="container mx-auto p-6">
         <h1 className="text-3xl font-bold text-center mb-6">Welcome to Varuna Realty</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
