@@ -4,6 +4,7 @@ import PropertyCard from '../components/PropertyCard';
 import HeroSection from '../components/HeroSection';
 import ComingSoon from '@/components/ComingSoon';
 import ContactForm from '@/components/ContactForm';
+import StatsSection from '@/components/StatsSection';
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
           {/* Add more PropertyCards as needed */}
         </div>
       </div>
+      <StatsSection />
     <ContactForm />
       <Footer />
     </>

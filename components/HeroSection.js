@@ -17,7 +17,7 @@ const HeroSection = () => (
 
       {/* Subtitle */}
       <p className="text-primary text-lg md:text-xl mt-4 max-w-2xl opacity-0 animate-fadeInUp delay-300">
-        Explore the best residential and commercial properties in Vasai, Palghar, and surrounding regions.
+        Explore the best residential and commercial properties in Naigaon, Vasai, Palghar, and surrounding regions.
       </p>
 
       {/* Call-to-action button */}
