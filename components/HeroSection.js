@@ -62,7 +62,7 @@ const HeroSection = () => (
         href="/properties"
         className="mt-8 bg-primary text-background px-8 py-4 rounded-full text-lg font-semibold transform transition duration-500 hover:bg-yellow-300 hover:-translate-y-2 opacity-0 animate-fadeInUp delay-500"
       >
-        View Listings
+        Explore
       </Link>
     </div>
   </section>
