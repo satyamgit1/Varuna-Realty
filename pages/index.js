@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <ComingSoon />
+      {/* <ComingSoon /> */}
       <HeroSection />
       <OwnerProfile />
       <div className="container mx-auto p-6">

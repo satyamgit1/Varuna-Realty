@@ -10,7 +10,7 @@ const OwnerProfile = () => {
           {/* Profile Image */}
           <div className="flex-shrink-0 mb-8 md:mb-0">
             <Image
-              src="/owner.jpg" // Corrected path with leading slash
+              src="/owner.png" // Corrected path with leading slash
               alt="Owner of Varuna Realty"
               width={300}
               height={300}
