@@ -1,5 +1,6 @@
-import Link from 'next/link';
-import { useState } from 'react';
+import Link from "next/link";
+import Image from "next/image"; // Import the Image component from Next.js
+import { useState } from "react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,16 +9,42 @@ const Navbar = () => {
     <nav className="bg-background text-primary shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Brand Logo */}
-        <Link href="/" className="text-3xl font-extrabold tracking-widest uppercase hover:text-yellow-300 transition duration-300">
-          Varuna Realty
+        <Link href="/">
+          <Image
+            src="/nav_logo.webp"
+            alt="Logo"
+            width={100} // Set appropriate width and height
+            height={80} // Adjust the height as per your design
+            className="hover:opacity-80 transition duration-300 rounded-full" // rounded-full adds border-radius: 50%
+          />
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6 text-lg font-semibold">
-          <Link href="/about" className="hover:text-yellow-300 transition duration-300">About Us</Link>
-          <Link href="/properties" className="hover:text-yellow-300 transition duration-300">Properties</Link>
-          <Link href="/services" className="hover:text-yellow-300 transition duration-300">Services</Link>
-          <Link href="/contact" className="hover:text-yellow-300 transition duration-300">Contact Us</Link>
+          <Link
+            href="/about"
+            className="hover:text-yellow-300 transition duration-300"
+          >
+            About Us
+          </Link>
+          <Link
+            href="/properties"
+            className="hover:text-yellow-300 transition duration-300"
+          >
+            Properties
+          </Link>
+          <Link
+            href="/services"
+            className="hover:text-yellow-300 transition duration-300"
+          >
+            Services
+          </Link>
+          <Link
+            href="/contact"
+            className="hover:text-yellow-300 transition duration-300"
+          >
+            Contact Us
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -47,10 +74,30 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-background text-center space-y-4 py-4 shadow-lg">
-          <Link href="/about" className="block text-lg hover:text-yellow-300 transition duration-300">About Us</Link>
-          <Link href="/properties" className="block text-lg hover:text-yellow-300 transition duration-300">Properties</Link>
-          <Link href="/services" className="block text-lg hover:text-yellow-300 transition duration-300">Services</Link>
-          <Link href="/Footer" className="block text-lg hover:text-yellow-300 transition duration-300">Contact Us</Link>
+          <Link
+            href="/about"
+            className="block text-lg hover:text-yellow-300 transition duration-300"
+          >
+            About Us
+          </Link>
+          <Link
+            href="/properties"
+            className="block text-lg hover:text-yellow-300 transition duration-300"
+          >
+            Properties
+          </Link>
+          <Link
+            href="/services"
+            className="block text-lg hover:text-yellow-300 transition duration-300"
+          >
+            Services
+          </Link>
+          <Link
+            href="/contact"
+            className="block text-lg hover:text-yellow-300 transition duration-300"
+          >
+            Contact Us
+          </Link>
         </div>
       )}
     </nav>
