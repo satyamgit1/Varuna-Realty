@@ -29,6 +29,7 @@ const MyApp = ({ Component, pageProps }) => {
         }}
       />
       <Component {...pageProps} />
+      <Analytics /> {/* Add Vercel Analytics component here */}
     </>
   );
 };
