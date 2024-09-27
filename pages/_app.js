@@ -1,6 +1,7 @@
 // pages/_app.js
 import { DefaultSeo } from 'next-seo';
 import '../styles/globals.css';
+import { Analytics } from '@vercel/analytics/react'; // Ensure this line is correct
 
 const MyApp = ({ Component, pageProps }) => {
   return (
@@ -29,7 +30,7 @@ const MyApp = ({ Component, pageProps }) => {
         }}
       />
       <Component {...pageProps} />
-      <Analytics /> {/* Add Vercel Analytics component here */}
+      <Analytics /> 
     </>
   );
 };
