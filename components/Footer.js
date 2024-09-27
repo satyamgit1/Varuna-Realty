@@ -18,10 +18,10 @@ const Footer = () => {
         {/* Contact Information */}
         <div className="md:col-span-1 text-left">
           <p className="mb-4">
-            <strong>Phone:</strong> <span className="text-brown-400">+91 9860630888, 7709394888</span>
+            <strong>Phone:</strong> <span className="text-brown-400">+91 7709394888</span>
           </p>
           <p className="mb-4">
-            <strong>Email:</strong> <span className="text-brown-400">shatyamshivam2@gmail.com</span>
+            <strong>Email:</strong> <span className="text-brown-400">varunarealty1@gmail.com</span>
           </p>
           <p className="mb-4">
             <strong>Address:</strong> <span className="text-brown-400">Building-1, Shop no: F/7, Parasnath Nagari, Vasai Palghar Tivari, 401208</span>
