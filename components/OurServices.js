@@ -1,34 +1,7 @@
 import { useState } from 'react';
 import { FaHome, FaChartLine, FaHandshake, FaRegBuilding } from 'react-icons/fa';
 
-const services = [
-  {
-    id: 1,
-    title: 'Residential Properties',
-    description: 'Explore beautiful residential properties that fit your dream home, from cozy apartments to luxurious villas in the Naigaon, Vasai, and Palghar region.',
-    icon: <FaHome size={60} className="text-primary" />,
-  },
-  {
-    id: 2,
-    title: 'Commercial Spaces',
-    description: 'Find the perfect commercial spaces to grow your business, including offices, retail spaces, and more, in prime locations across the city.',
-    icon: <FaRegBuilding size={60} className="text-primary" />,
-  },
-  {
-    id: 3,
-    title: 'Investment Consulting',
-    description: 'Get expert investment consulting to help you make informed decisions about real estate investments and maximize your returns.',
-    icon: <FaChartLine size={60} className="text-primary" />,
-  },
-  {
-    id: 4,
-    title: 'Property Deals',
-    description: 'Work with us to secure the best property deals through our trusted network of realtors, buyers, and sellers. We ensure smooth transactions every time.',
-    icon: <FaHandshake size={60} className="text-primary" />,
-  },
-];
-
-const OurServices = () => {
+const OurServices = ({ services }) => {
   const [selectedService, setSelectedService] = useState(null);
 
   return (
@@ -55,6 +28,36 @@ const OurServices = () => {
       </div>
     </section>
   );
+};
+
+// Define the default services if none are passed
+OurServices.defaultProps = {
+  services: [
+    {
+      id: 1,
+      title: 'Residential Properties',
+      description: 'Explore beautiful residential properties that fit your dream home, from cozy apartments to luxurious villas in the Naigaon, Vasai, and Palghar region.',
+      icon: <FaHome size={60} className="text-primary" />,
+    },
+    {
+      id: 2,
+      title: 'Commercial Spaces',
+      description: 'Find the perfect commercial spaces to grow your business, including offices, retail spaces, and more, in prime locations across the city.',
+      icon: <FaRegBuilding size={60} className="text-primary" />,
+    },
+    {
+      id: 3,
+      title: 'Investment Consulting',
+      description: 'Get expert investment consulting to help you make informed decisions about real estate investments and maximize your returns.',
+      icon: <FaChartLine size={60} className="text-primary" />,
+    },
+    {
+      id: 4,
+      title: 'Property Deals',
+      description: 'Work with us to secure the best property deals through our trusted network of realtors, buyers, and sellers. We ensure smooth transactions every time.',
+      icon: <FaHandshake size={60} className="text-primary" />,
+    },
+  ],
 };
 
 export default OurServices;
