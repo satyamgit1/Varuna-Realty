@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaHome, FaChartLine, FaHandshake, FaRegBuilding } from 'react-icons/fa'; // Importing FontAwesome icons
+import { FaHome, FaChartLine, FaHandshake, FaRegBuilding } from 'react-icons/fa';
 
 const services = [
   {
@@ -32,53 +32,26 @@ const OurServices = () => {
   const [selectedService, setSelectedService] = useState(null);
 
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-16 bg-gray-100" aria-label="Our Services">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold text-primary mb-12">Our Services</h2>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service) => (
             <div
               key={service.id}
               onMouseEnter={() => setSelectedService(service.id)}
               onMouseLeave={() => setSelectedService(null)}
-              className={`relative bg-white p-8 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl hover:rotate-1 ${
-                selectedService === service.id ? 'scale-105 shadow-2xl' : ''
-              }`}
-              style={{
-                perspective: '1000px', // Creating a 3D space
-              }}
+              className="relative bg-white p-8 rounded-lg shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+              aria-labelledby={`service-title-${service.id}`}
             >
               <div className="flex flex-col items-center justify-center h-full">
-                <div
-                  className="mb-4 transform transition-transform duration-500 hover:rotate-12"
-                  style={{
-                    transformStyle: 'preserve-3d', // Enabling 3D effects for the icon
-                  }}
-                >
-                  {service.icon}
-                </div>
-                <h3 className="text-2xl font-semibold text-background mb-4">{service.title}</h3>
+                <div className="mb-4">{service.icon}</div>
+                <h3 id={`service-title-${service.id}`} className="text-2xl font-semibold text-background mb-4">{service.title}</h3>
                 <p className="text-gray-700">{service.description}</p>
               </div>
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="container mx-auto px-6 mt-16">
-        {selectedService && (
-          <div
-            className={`bg-primary text-background p-8 rounded-lg shadow-lg transform transition-transform duration-500 hover:rotate-3 ${
-              selectedService ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <h3 className="text-3xl font-bold mb-4">{services.find((service) => service.id === selectedService).title}</h3>
-            <p className="text-lg">
-              {services.find((service) => service.id === selectedService).description}
-            </p>
-          </div>
-        )}
       </div>
     </section>
   );
