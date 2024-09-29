@@ -1,15 +1,15 @@
 # This file is used by web crawlers to understand how to crawl the site
 
 User-agent: * 
-Allow: /      
+Allow: /
 
-# Disallow crawling of specific directories
+# Disallow crawling of specific directories to avoid indexing non-essential areas
 Disallow: /api/          # Prevent crawlers from accessing API routes
-Disallow: /private/      # Example: Prevent access to a 'private' directory
-Disallow: /temporary/    # Example: Prevent access to a 'temporary' directory
+Disallow: /private/      # Prevent access to a 'private' directory
+Disallow: /temporary/    # Prevent access to a 'temporary' directory
 
 # Allow specific pages even if their parent directories are disallowed
 Allow: /public/page.html # Allow crawling of this specific page
 
 # Sitemap Location
-Sitemap: https://www.varunarealty.com/sitemap.xml # Update with your actual sitemap URL
+Sitemap: https://www.varunarealty.com/sitemap.xml
