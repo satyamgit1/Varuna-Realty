@@ -1,7 +1,7 @@
 # This file is used by web crawlers to understand how to crawl the site
 
-User-agent: *  # Applies to all web crawlers
-Allow: /       # Allow crawling of all content
+User-agent: * 
+Allow: /      
 
 # Disallow crawling of specific directories
 Disallow: /api/          # Prevent crawlers from accessing API routes

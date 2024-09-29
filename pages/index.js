@@ -120,8 +120,8 @@ export default function Home() {
         {/* Open Graph Metadata */}
         <meta property="og:title" content="Varuna Realty" />
         <meta property="og:description" content="Explore beautiful residential and commercial properties." />
-        <meta property="og:image" content="https://yourwebsite.com/og-image.jpg" />
-        <meta property="og:url" content="https://yourwebsite.com" />
+        <meta property="og:image" content="https://www.varunarealty.com/og-image.jpg" />
+        <meta property="og:url" content="https://www.varunarealty.com/" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card Metadata */}
