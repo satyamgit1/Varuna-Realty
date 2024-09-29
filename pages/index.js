@@ -120,7 +120,7 @@ export default function Home() {
         {/* Open Graph Metadata */}
         <meta property="og:title" content="Varuna Realty" />
         <meta property="og:description" content="Explore beautiful residential and commercial properties." />
-        <meta property="og:image" content="https://www.varunarealty.com/og-image.jpg" />
+        <meta property="og:image" content="https://www.varunarealty.com/nav_logo.webp" />
         <meta property="og:url" content="https://www.varunarealty.com/" />
         <meta property="og:type" content="website" />
 
@@ -133,6 +133,22 @@ export default function Home() {
 
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
+        <script type="application/ld+json">
+    {`
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "url": "https://www.varunarealty.com",
+        "logo": "https://www.varunarealty.com/nav_logo.webp",  // Adjust the path if necessary
+        "name": "Varuna Realty",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-800-555-5555",
+          "contactType": "Customer Service"
+        }
+      }
+    `}
+  </script>
       </Head>
 
       <Navbar />
