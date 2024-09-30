@@ -83,6 +83,7 @@ import ContactForm from '@/components/ContactForm';
 import StatsSection from '@/components/StatsSection';
 import OurServices from '@/components/OurServices';
 import OwnerProfile from '@/components/OwnerProfile';
+import WhatsAppButton from '@/components/WhatsAppButton';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
@@ -154,6 +155,7 @@ export default function Home() {
       <Navbar />
       {/* <ComingSoon /> */}
       <HeroSection />
+      <WhatsAppButton />
       <OwnerProfile />
       <div className="container mx-auto p-6">
         <h1 className="text-3xl font-bold text-center mb-6">Welcome to Varuna Realty</h1>
