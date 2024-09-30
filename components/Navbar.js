@@ -11,11 +11,12 @@ const Navbar = () => {
         {/* Brand Logo */}
         <Link href="/">
           <Image
-            src="/favicon.ico"
+            src="/favicon4.ico"
             alt="Logo"
-            width={100} // Set appropriate width and height
-            height={80} // Adjust the height as per your design
-            className="hover:opacity-80 transition duration-300 rounded-full" // rounded-full adds border-radius: 50%
+            width={80} // Set equal width and height for a perfect circle
+            height={80} // Equal height
+            className="hover:opacity-80 transition duration-300 rounded-full"
+            // rounded-full ensures the logo is a perfect circle
           />
         </Link>
 
