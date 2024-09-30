@@ -11,7 +11,7 @@ const Navbar = () => {
         {/* Brand Logo */}
         <Link href="/">
           <Image
-            src="/nav_logo.webp"
+            src="/favicon.ico"
             alt="Logo"
             width={100} // Set appropriate width and height
             height={80} // Adjust the height as per your design

@@ -15,7 +15,7 @@ const MyApp = ({ Component, pageProps }) => {
           description: 'Explore residential and commercial properties in Naigaon, Vasai, and Palghar.',
           images: [
             {
-              url: 'https://www.varunarealty.com/_next/image?url=%2Fnav_logo.webp&w=256&q=75',
+              url: './favicon.ico',
               width: 800,
               height: 600,
               alt: 'Varuna Realty',
