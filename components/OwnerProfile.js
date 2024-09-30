@@ -141,7 +141,7 @@ const OwnerProfile = () => {
   return (
     <>
       <Head>
-        <title>Owner Profile - Devendra Singh | Varuna Realty</title>
+      <title>Varuna Realty - Your Trusted Real Estate Partner</title>
         <meta name="description" content="Learn more about Devendra Singh, the founder of Varuna Realty, and his vision for the real estate market." />
         <meta name="keywords" content="Devendra Singh, Varuna Realty founder, real estate, owner profile" />
         <meta name="author" content="Devendra Singh" />
