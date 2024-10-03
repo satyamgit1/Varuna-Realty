@@ -4,7 +4,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const withPWA = require('next-pwa')({
   dest: 'public', // the destination where PWA files will be generated
-  swSrc: 'public/sw.js', // Custom service worker
   disable: process.env.NODE_ENV === 'development', // Disable PWA in development mode
 });
 
