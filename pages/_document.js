@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Link to the manifest file */}
+        {/* Link to the my manifest file */}
         <link rel="manifest" href="/manifest.json" />
 
         
