@@ -86,6 +86,7 @@ import OwnerProfile from '@/components/OwnerProfile';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import OurOffice from '../components/OurOffice';
 
 export default function Home() {
   const [services, setServices] = useState([]);
@@ -153,23 +154,14 @@ export default function Home() {
       </Head>
 
       <Navbar />
+   
       {/* <ComingSoon /> */}
       <HeroSection />
       <WhatsAppButton />
+      <OurOffice />
       <OwnerProfile />
-      <div className="container mx-auto p-6">
-        <h1 className="text-3xl font-bold text-center mb-6">Welcome to Varuna Realty</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {/* Example properties */}
-          {/* <PropertyCard
-            title="Luxury Villa"
-            location="Vasai, Maharashtra"
-            price="₹2.5 Crores"
-            image="/assets/villa.jpg"
-          /> */}
-          {/* Add more PropertyCards as needed */}
-        </div>
-      </div>
+     
+      
       
       {/* Pass the fetched services as a prop */}
       <OurServices services={services} /> 
