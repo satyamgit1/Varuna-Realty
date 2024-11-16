@@ -10,7 +10,7 @@ export default function Document() {
         
         {/* PWA icons */}
         <link rel="apple-touch-icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="512x512" href="/coffee.png" />
+        <link rel="apple-touch-icon" sizes="512x512" href="/favicon.ico" />
         
         {/* Meta tags for theme color */}
         <meta name="theme-color" content="#ffffff" />
