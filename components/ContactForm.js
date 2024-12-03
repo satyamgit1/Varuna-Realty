@@ -1,80 +1,11 @@
-// import { useState } from 'react';
-
-// const ContactForm = () => {
-//   const [formData, setFormData] = useState({
-//     name: '',
-//     email: '',
-//     message: ''
-//   });
-
-//   const handleChange = (e) => {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]: e.target.value
-//     });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     // handle form submission logic
-//     console.log('Form submitted', formData);
-//   };
-
-//   return (
-//     <section className="py-16 bg-gray-100 flex justify-center items-center">
-//       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl">
-//         <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 animate-fadeInDown">
-//           Get in Touch Today!
-//         </h2>
-//         <form onSubmit={handleSubmit} className="space-y-6">
-//           <div className="flex space-x-4 animate-fadeInUp">
-//             <input
-//               type="text"
-//               name="name"
-//               value={formData.name}
-//               onChange={handleChange}
-//               placeholder="Name"
-//               className="w-1/2 p-4 rounded-full border border-gray-300 focus:ring-2 focus:ring-yellow-400 focus:outline-none transition duration-300"
-//             />
-//             <input
-//               type="email"
-//               name="email"
-//               value={formData.email}
-//               onChange={handleChange}
-//               placeholder="Email"
-//               className="w-1/2 p-4 rounded-full border border-gray-300 focus:ring-2 focus:ring-yellow-400 focus:outline-none transition duration-300"
-//             />
-//           </div>
-//           <div className="animate-fadeInUp">
-//             <textarea
-//               name="message"
-//               value={formData.message}
-//               onChange={handleChange}
-//               placeholder="Message"
-//               className="w-full p-4 h-24 rounded-full border border-gray-300 focus:ring-2 focus:ring-yellow-400 focus:outline-none transition duration-300"
-//             />
-//           </div>
-//           <div className="flex justify-center animate-fadeInUp">
-//           <button className="bg-yellow-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-yellow-600 transition-all duration-500 ease-in-out">
-//   Send It!
-// </button>
-
-//           </div>
-//         </form>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default ContactForm;
-
-
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: '',
   });
 
@@ -83,9 +14,23 @@ const ContactForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
+
+    try {
+      const response = await axios.post('http://localhost:3001/contact', {
+        userEmail: formData.email, // Send the user's email to the backend
+        contactInfo: formData,     // Send all form data
+      });
+
+      console.log('Server response:', response.data);
+      alert('Your message has been sent!');
+      setFormData({ name: '', email: '', phone: '', message: '' }); // Reset form fields
+    } catch (error) {
+      console.error('Error sending form:', error);
+      alert('There was an issue sending your message. Please try again later.');
+    }
   };
 
   return (
@@ -98,7 +43,7 @@ const ContactForm = () => {
           Get in touch with Varuna Realty for your property needs.
         </p>
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Name and Email in a row */}
+          {/* Name, Email, and Phone in a row */}
           <div className="flex flex-col md:flex-row md:space-x-6">
             <div className="relative w-full">
               <input
@@ -118,7 +63,19 @@ const ContactForm = () => {
                 placeholder="Your Email Address"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full bg-yellow-100 text-brown-900 p-4 rounded-xl shadow-md outline-none focus:ring-4 focus:ring-orange-400 transition duration-300"
+                className="w-full bg-yellow-100 text-brown-900 p-4 rounded-xl shadow-md outline-none focus:ring-4 focus:ring-orange-400 transition duration-300 mb-6 md:mb-0"
+                required
+              />
+            </div>
+            <div className="relative w-full">
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Your Phone Number"
+                value={formData.phone}
+                onChange={handleInputChange}
+                className="w-full bg-yellow-100 text-brown-900 p-4 rounded-xl shadow-md outline-none focus:ring-4 focus:ring-orange-400 transition duration-300 mb-6 md:mb-0"
+                pattern="^[0-9]{10}$" // Phone validation for 10 digits
                 required
               />
             </div>
