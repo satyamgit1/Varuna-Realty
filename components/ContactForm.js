@@ -101,7 +101,7 @@ const ContactForm = () => {
                 onChange={handleInputChange}
                 className="w-full bg-yellow-50 border border-yellow-100 text-brown-900 p-3 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition duration-200"
                 required
-                placeholder="John Doe"
+                placeholder="Your Name"
               />
             </div>
 
@@ -118,7 +118,7 @@ const ContactForm = () => {
                 className="w-full bg-yellow-50 border border-yellow-100 text-brown-900 p-3 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition duration-200"
                 pattern="^[0-9]{10}$"
                 required
-                placeholder="1234567890"
+                placeholder="enter your mobile number"
               />
             </div>
 
@@ -143,7 +143,7 @@ const ContactForm = () => {
             </div>
           </div>
 
-          <div>
+          {/* <div>
             <label htmlFor="message" className="block text-sm font-medium text-brown-700 mb-1">
               Your Message*
             </label>
@@ -156,7 +156,7 @@ const ContactForm = () => {
               required
               placeholder="How can we help you?"
             ></textarea>
-          </div>
+          </div> */}
 
           <div className="pt-2">
             <button
@@ -173,7 +173,7 @@ const ContactForm = () => {
 
         <div className="mt-8 text-center text-sm text-brown-500">
           <p>We typically respond within 24 hours</p>
-          <p className="mt-1">Call us directly at <span className="font-semibold">+1 (123) 456-7890</span></p>
+          <p className="mt-1">Call us directly at <span className="font-semibold">+91 9860630888</span></p>
         </div>
       </div>
     </section>
