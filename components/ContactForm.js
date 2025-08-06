@@ -143,7 +143,7 @@ const ContactForm = () => {
             </div>
           </div>
 
-          {/* <div>
+          <div>
             <label htmlFor="message" className="block text-sm font-medium text-brown-700 mb-1">
               Your Message*
             </label>
@@ -156,7 +156,7 @@ const ContactForm = () => {
               required
               placeholder="How can we help you?"
             ></textarea>
-          </div> */}
+          </div>
 
           <div className="pt-2">
             <button
