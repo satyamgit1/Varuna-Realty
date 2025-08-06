@@ -78,7 +78,7 @@ export default function Home() {
               "name": "Varuna Realty",
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+917709394888,
+                "telephone": "+919860630888,
                 "contactType": "Customer Service"
               }
             }
@@ -109,7 +109,7 @@ export default function Home() {
               </svg>
             </a>
             <a 
-              href="tel:+917709394888" 
+              href="tel:+919860630888" 
               className="bg-green-500 text-white p-2 rounded-full hover:bg-green-600"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

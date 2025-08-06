@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { FaLinkedin, FaTwitter, FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const OwnerProfile = () => {
-  const whatsappNumber = "+917709394888"
+  const whatsappNumber = "+919860630888"
   return (
     <>
       <Head>

@@ -18,7 +18,7 @@ const Footer = () => {
         {/* Contact Information */}
         <div className="md:col-span-1 text-left">
           <p className="mb-4">
-            <strong>Phone:</strong> <span className="text-brown-400">+91 7709394888</span>
+            <strong>Phone:</strong> <span className="text-brown-400">+91 9860630888</span>
           </p>
           <p className="mb-4">
             <strong>Email:</strong> <span className="text-brown-400">varunarealty1@gmail.com</span>
