@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Head from 'next/head';
 import PropertyCard from '../components/PropertyCard';
 import PropertyModal from '../components/PropertyModal';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const PropertiesPage = () => {
   // Sample property data with YOUR contact details
@@ -56,6 +58,7 @@ const PropertiesPage = () => {
 
   return (
     <>
+    <Navbar />
       <Head>
         <title>Properties | Varuna Realty</title>
         <meta name="description" content="Premium properties listed by Varuna Realty - Your trusted real estate partner" />
@@ -86,6 +89,7 @@ const PropertiesPage = () => {
           />
         )}
       </main>
+      <Footer />
     </>
   );
 };
