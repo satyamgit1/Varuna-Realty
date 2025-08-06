@@ -13,3 +13,9 @@ module.exports = withBundleAnalyzer(
     swcMinify: false, // Disable SWC minification to avoid platform-specific issues
   })
 );
+
+module.exports = {
+  images: {
+    domains: ['newprojectdetails.com'],
+  },
+};
