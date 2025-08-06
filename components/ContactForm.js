@@ -1,13 +1,25 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
+    category: 'general',
     message: '',
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const categories = [
+    { value: 'general', label: 'General Inquiry' },
+    { value: 'property', label: 'Property Inquiry' },
+    { value: 'sale', label: 'Selling a Property' },
+    { value: 'rent', label: 'Renting a Property' },
+    { value: 'investment', label: 'Investment Opportunity' },
+    { value: 'feedback', label: 'Feedback' },
+    { value: 'other', label: 'Other' },
+  ];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -16,93 +28,153 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
 
     try {
-      const response = await axios.post('http://localhost:3001/contact', {
-        userEmail: formData.email, // Send the user's email to the backend
-        contactInfo: formData,     // Send all form data
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contactInfo: formData
+        }),
       });
 
-      console.log('Server response:', response.data);
-      alert('Your message has been sent!');
-      setFormData({ name: '', email: '', phone: '', message: '' }); // Reset form fields
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('Server response:', data);
+      setSubmitStatus('success');
+      setFormData({ 
+        name: '', 
+        phone: '', 
+        category: 'general',
+        message: '' 
+      });
     } catch (error) {
       console.error('Error sending form:', error);
-      alert('There was an issue sending your message. Please try again later.');
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-300 via-orange-400 to-brown-500">
-      <div className="bg-white rounded-3xl shadow-2xl p-10 md:p-16 max-w-lg w-full transform hover:scale-105 transition-transform duration-500 ease-in-out hover:shadow-[0_10px_40px_rgba(0,0,0,0.3)]">
-        <h2 className="text-5xl font-bold text-center text-brown-900 mb-8">
-          Contact Us
-        </h2>
-        <p className="text-center text-brown-700 mb-8">
-          Get in touch with Varuna Realty for your property needs.
-        </p>
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-50 to-orange-50 py-12 px-4">
+      <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 max-w-2xl w-full">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-brown-900 mb-3">
+            Contact Varuna Realty
+          </h2>
+          <p className="text-brown-600 max-w-md mx-auto">
+            Have questions about properties, investments, or our services? We're here to help.
+          </p>
+        </div>
+
+        {submitStatus === 'success' && (
+          <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
+            Your message has been sent successfully!
+          </div>
+        )}
+
+        {submitStatus === 'error' && (
+          <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-lg">
+            There was an issue sending your message. Please try again later.
+          </div>
+        )}
+
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Name, Email, and Phone in a row */}
-          <div className="flex flex-col md:flex-row md:space-x-6">
-            <div className="relative w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-brown-700 mb-1">
+                Full Name*
+              </label>
               <input
                 type="text"
+                id="name"
                 name="name"
-                placeholder="Your First Name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full bg-yellow-100 text-brown-900 p-4 rounded-xl shadow-md outline-none focus:ring-4 focus:ring-orange-400 transition duration-300 mb-6 md:mb-0"
+                className="w-full bg-yellow-50 border border-yellow-100 text-brown-900 p-3 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition duration-200"
                 required
+                placeholder="John Doe"
               />
             </div>
-            <div className="relative w-full">
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email Address"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full bg-yellow-100 text-brown-900 p-4 rounded-xl shadow-md outline-none focus:ring-4 focus:ring-orange-400 transition duration-300 mb-6 md:mb-0"
-                required
-              />
-            </div>
-            <div className="relative w-full">
+
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-brown-700 mb-1">
+                Phone Number*
+              </label>
               <input
                 type="tel"
+                id="phone"
                 name="phone"
-                placeholder="Your Phone Number"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full bg-yellow-100 text-brown-900 p-4 rounded-xl shadow-md outline-none focus:ring-4 focus:ring-orange-400 transition duration-300 mb-6 md:mb-0"
-                pattern="^[0-9]{10}$" // Phone validation for 10 digits
+                className="w-full bg-yellow-50 border border-yellow-100 text-brown-900 p-3 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition duration-200"
+                pattern="^[0-9]{10}$"
                 required
+                placeholder="1234567890"
               />
+            </div>
+
+            <div className="md:col-span-2">
+              <label htmlFor="category" className="block text-sm font-medium text-brown-700 mb-1">
+                Inquiry Type*
+              </label>
+              <select
+                id="category"
+                name="category"
+                value={formData.category}
+                onChange={handleInputChange}
+                className="w-full bg-yellow-50 border border-yellow-100 text-brown-900 p-3 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition duration-200"
+                required
+              >
+                {categories.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
 
-          {/* Message Field */}
-          <div className="relative">
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-brown-700 mb-1">
+              Your Message*
+            </label>
             <textarea
+              id="message"
               name="message"
-              placeholder="Your Message"
               value={formData.message}
               onChange={handleInputChange}
-              className="w-full bg-yellow-100 text-brown-900 p-4 rounded-xl shadow-md outline-none focus:ring-4 focus:ring-orange-400 transition duration-300 h-32 resize-none"
+              className="w-full bg-yellow-50 border border-yellow-100 text-brown-900 p-3 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition duration-200 h-40"
               required
+              placeholder="How can we help you?"
             ></textarea>
           </div>
 
-          {/* Submit Button */}
-          <div className="text-center">
+          <div className="pt-2">
             <button
               type="submit"
-              className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:bg-gradient-to-r hover:from-yellow-500 hover:to-orange-600 transition-transform duration-300 ease-in-out transform hover:scale-110"
+              disabled={isSubmitting}
+              className={`w-full bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ${
+                isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:from-orange-600 hover:to-yellow-600'
+              }`}
             >
-              Submit Your Inquiry
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </div>
         </form>
+
+        <div className="mt-8 text-center text-sm text-brown-500">
+          <p>We typically respond within 24 hours</p>
+          <p className="mt-1">Call us directly at <span className="font-semibold">+1 (123) 456-7890</span></p>
+        </div>
       </div>
     </section>
   );
